@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
-        <h1 class="text-2xl font-bold mb-4">Update Suppliers</h1>
+        <h1 class="text-2xl font-bold mb-4">Actualiza proveedor</h1>
 
         <!-- Show messages (error) -->
 
@@ -25,7 +25,7 @@
             <!-- Name -->
 
             <div>
-                <label for="name" class="block text-sm font-medium text-gray-700">Name: </label>
+                <label for="name" class="block text-sm font-medium text-gray-700">Nombre: </label>
                 <input
                     type="text"
                     name="name"
@@ -40,17 +40,16 @@
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label for="document_type" class="block text-sm font-medium text-gray-700">
-                        Type of Document
+                        Tipo de documento
                     </label>
                     <select name="document_type" id="document_type" class="w-full px-4 py-2 border rounded">
-                        <option value="DNI" {{ $supplier->document_type == "DNI" ? 'selected' : '' }}>DNI</option>
-                        <option value="RUC" {{ $supplier->document_type == "RUC" ? 'selected' : '' }}>RUC</option>
-                        <option value="PASSPORT" {{ $supplier->document_type == "PASSPORT" ? 'selected' : '' }}>PASSPORT</option>
-                        <option value="RIF" {{ $supplier->document_type == "RIF" ? 'selected' : '' }}>RIF</option>
+                        <option value="INE" {{ $supplier->document_type == "INE" ? 'selected' : '' }}>INE</option>
+                        <option value="RFC" {{ $supplier->document_type == "RFC" ? 'selected' : '' }}>RFC</option>
+                        <option value="Pasaporte" {{ $supplier->document_type == "Pasaporte" ? 'selected' : '' }}>Pasaporte</option>
                     </select>
                 </div>
                 <div>
-                    <label for="document_number" class="block text-sm font-medium text-gray-700">Document number: </label>
+                    <label for="document_number" class="block text-sm font-medium text-gray-700">Numero de documento: </label>
                     <input
                         type="text"
                         name="document_number"
@@ -64,7 +63,7 @@
             <!-- Address -->
 
             <div>
-                <label for="address" class="block text-sm font-medium text-gray-700">Address: </label>
+                <label for="address" class="block text-sm font-medium text-gray-700">Direccion: </label>
                 <input
                     type="text"
                     name="address"
@@ -77,7 +76,7 @@
             <!-- Phone and Email -->
             <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone: </label>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Telefono: </label>
                     <input
                         type="text"
                         name="phone"
@@ -110,7 +109,7 @@
                             class="text-blue-500 focus:ring-blue-400"
                             {{ old('status', $supplier->status) == 1 ? 'checked' : ''}}
                         />
-                        <span class="ml-2 text-gray-700">Active</span>
+                        <span class="ml-2 text-gray-700">Activo</span>
                     </label>
                     <label class="flex items-center">
                         <input
@@ -120,7 +119,7 @@
                             class="text-blue-500 focus:ring-blue-400"
                             {{ old('status', $supplier->status) == 0 ? 'checked' : ''}}
                         />
-                        <span class="ml-2 text-gray-700">Inactive</span>
+                        <span class="ml-2 text-gray-700">Inactivo</span>
                     </label>
                 </div>
             </div>
@@ -128,8 +127,8 @@
             <!-- Buttons -->
 
             <div class="flex justify-end space-x-3">
-                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Update</button>
-                <a href="{{ route('suppliers.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Cancel</a>
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Actualizar</button>
+                <a href="{{ route('suppliers.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Cancelar</a>
             </div>
 
         </form>

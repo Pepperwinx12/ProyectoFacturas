@@ -39,8 +39,8 @@
                 <span class="text-[10px]">Categorías</span>
             </button>
             <div class="absolute bottom-full mb-2 bg-gradient-to-r from-purple-600 to-indigo-500 text-white rounded-xl shadow-xl py-2 w-40 text-left z-50 origin-bottom group-hover:block hidden">
-                <a href="{{ route('categories.create') }}" class="block px-4 py-2 hover:bg-purple-700 transition">📂 Datos</a>
-                <a href="{{ route('reports.categories') }}" class="block px-4 py-2 hover:bg-purple-700 transition">📊 Reportes</a>
+                <a href="{{ route('categories.create') }}" class="block px-4 py-2 hover:bg-purple-700 transition">Ingresar categoria</a>
+                <a href="{{ route('reports.categories') }}" class="block px-4 py-2 hover:bg-purple-700 transition">Generar reporte</a>
             </div>
         </div>
 
@@ -51,8 +51,8 @@
                 <span class="text-[10px]">Proveedores</span>
             </button>
             <div class="absolute bottom-full mb-2 bg-gradient-to-r from-purple-600 to-indigo-500 text-white rounded-xl shadow-xl py-2 w-40 text-left z-50 origin-bottom group-hover:block hidden">
-                <a href="{{ route('suppliers.create') }}" class="block px-4 py-2 hover:bg-purple-700 transition">📂 Datos</a>
-                <a href="#" class="block px-4 py-2 hover:bg-purple-700 transition">📊 Reportes</a>
+                <a href="{{ route('suppliers.create') }}" class="block px-4 py-2 hover:bg-purple-700 transition">Ingresar proveedor</a>
+                <a href="#" class="block px-4 py-2 hover:bg-purple-700 transition">Generar reporte</a>
             </div>
         </div>
 
@@ -63,8 +63,8 @@
                 <span class="text-[10px]">Clientes</span>
             </button>
             <div class="absolute bottom-full mb-2 bg-gradient-to-r from-purple-600 to-indigo-500 text-white rounded-xl shadow-xl py-2 w-40 text-left z-50 origin-bottom group-hover:block hidden">
-                <a href="{{ route('customers.create') }}" class="block px-4 py-2 hover:bg-purple-700 transition">📂 Datos</a>
-                <a href="#" class="block px-4 py-2 hover:bg-purple-700 transition">📊 Reportes</a>
+                <a href="{{ route('customers.create') }}" class="block px-4 py-2 hover:bg-purple-700 transition">Ingresar clientes</a>
+                <a href="#" class="block px-4 py-2 hover:bg-purple-700 transition">Generar reporte</a>
             </div>
         </div>
 
@@ -75,8 +75,8 @@
                 <span class="text-[10px]">Productos</span>
             </button>
             <div class="absolute bottom-full mb-2 bg-gradient-to-r from-purple-600 to-indigo-500 text-white rounded-xl shadow-xl py-2 w-40 text-left z-50 origin-bottom group-hover:block hidden">
-                <a href="{{ route('items.create') }}" class="block px-4 py-2 hover:bg-purple-700 transition">📂 Datos</a>
-                <a href="#" class="block px-4 py-2 hover:bg-purple-700 transition">📊 Reportes</a>
+                <a href="{{ route('items.create') }}" class="block px-4 py-2 hover:bg-purple-700 transition">Ingresar productos</a>
+                <a href="#" class="block px-4 py-2 hover:bg-purple-700 transition">Generar reporte</a>
             </div>
         </div>
 
@@ -87,8 +87,8 @@
                 <span class="text-[10px]">Ventas</span>
             </button>
             <div class="absolute bottom-full mb-2 bg-gradient-to-r from-purple-600 to-indigo-500 text-white rounded-xl shadow-xl py-2 w-40 text-left z-50 origin-bottom group-hover:block hidden">
-                <a href="#" class="block px-4 py-2 hover:bg-purple-700 transition">📂 Datos</a>
-                <a href="#" class="block px-4 py-2 hover:bg-purple-700 transition">📊 Reportes</a>
+                <a href="#" class="block px-4 py-2 hover:bg-purple-700 transition">Generar ventas</a>
+                <a href="#" class="block px-4 py-2 hover:bg-purple-700 transition">Generar reporte</a>
             </div>
         </div>
 

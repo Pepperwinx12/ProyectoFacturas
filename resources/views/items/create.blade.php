@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="max-w-4xl mx-auto bg-white p-6 rounded shadow">
-        <h1 class="text-2xl font-bold mb-4">Crear Producto</h1>
+        <h1 class="text-2xl font-bold mb-4">Crear articulos</h1>
 
         <!-- Mostrar mensajes de éxito -->
         @if (session('success'))
@@ -131,7 +131,7 @@
             <div class="flex justify-end space-x-3 mt-6">
                 <button type="submit" class="bg-green-500 text-white px-6 py-3 rounded">Guardar</button>
                 <a href="{{ route('items.index') }}" class="bg-gray-500 text-white px-6 py-3 rounded">Cancelar</a>
-                <a href="{{ route('items.index') }}" class="bg-blue-500 text-white px-6 py-3 rounded">Ver productos</a>
+                <a href="{{ route('items.index') }}" class="bg-blue-500 text-white px-6 py-3 rounded">Listas</a>
             </div>
 
         </form>

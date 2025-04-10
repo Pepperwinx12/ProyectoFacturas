@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="max-w-6xl mx-auto bg-white p-6 rounded shadow">
-    <h1 class="text-2xl font-bold mb-4">Suppliers List</h1>
+    <h1 class="text-2xl font-bold mb-4">Lista de proveedores</h1>
 
     @if (session('success'))
         <div class="bg-green-100 text-green-700 p-3 rounded mb-4">
@@ -27,11 +27,10 @@
             <!-- Filter by Document Type -->
             <div>
                 <select name="document_type" class="border border-gray-300 rounded px-4 py-2">
-                    <option value="">All</option>
-                    <option value="DNI" {{ request('document_type') == 'DNI' ? 'selected' : '' }}>DNI</option>
-                    <option value="RUC" {{ request('document_type') == 'RUC' ? 'selected' : '' }}>RUC</option>
-                    <option value="PASSPORT" {{ request('document_type') == 'PASSPORT' ? 'selected' : '' }}>Passport</option>
-                    <option value="RIF" {{ request('document_type') == 'RIF' ? 'selected' : '' }}>RIF</option>
+                    <option value="">Todos</option>
+                    <option value="INE" {{ request('document_type') == 'INE' ? 'selected' : '' }}>INE</option>
+                    <option value="RFC" {{ request('document_type') == 'RFC' ? 'selected' : '' }}>RFC</option>
+                    <option value="Pasaporte" {{ request('document_type') == 'Pasaporte' ? 'selected' : '' }}>Pasaporte</option>
                 </select>
             </div>
 
@@ -42,8 +41,8 @@
                     class="border border-gray-300 rounded px-4 py-2"
                 >
                     <option value="">All</option>
-                    <option value="1" {{ request('condition') == '1' ? 'selected' : '' }}>Active</option>
-                    <option value="0" {{ request('condition') == '0' ? 'selected' : '' }}>Inactive</option>
+                    <option value="1" {{ request('condition') == '1' ? 'selected' : '' }}>Activo</option>
+                    <option value="0" {{ request('condition') == '0' ? 'selected' : '' }}>Inactivo</option>
                 </select>
             </div>
 
@@ -81,9 +80,9 @@
         <thead>
             <tr class="bg-gray-200 text-left">
                 <th class="px-4 py-2">ID</th>
-                <th class="px-4 py-2">Name</th>
-                <th class="px-4 py-2">Document</th>
-                <th class="px-4 py-2">Phone</th>
+                <th class="px-4 py-2">Nombre</th>
+                <th class="px-4 py-2">Documento</th>
+                <th class="px-4 py-2">Telefono</th>
                 <th class="px-4 py-2">Status</th>
             </tr>
         </thead>
@@ -98,7 +97,7 @@
                         {{ $supplier->status ? 'Activo' : 'Inactivo' }}
                     </td>
                     <td class="border px-4 py-2">
-                        <a href="{{ route('suppliers.edit', $supplier) }}" class="text-blue-500 hover:underline">Edit</a>
+                        <a href="{{ route('suppliers.edit', $supplier) }}" class="text-blue-500 hover:underline">Editar</a>
                     </td>
                     <td class="border px-4 py-2">
                         <!-- Delete button -->
@@ -106,7 +105,7 @@
                             onclick="confirmDelete({{ $supplier->id }})"
                             class="text-red-500 hover:underline"
                         >
-                            Delete
+                            Eliminar
                         </button>
 
                         <!-- Hidden form for deletion -->
@@ -123,7 +122,7 @@
                  </tr>
             @empty
                 <tr>
-                    <td colspan="6" class="text-center py-4">Suppliers not found.</td>
+                    <td colspan="6" class="text-center py-4">Proveedores no encontrados.</td>
                 </tr>
             @endforelse
         </tbody>
@@ -136,7 +135,7 @@
 
     <!-- Button for return to main form -->
     <div class="mt-4">
-        <a href="{{ route('suppliers.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Return to Form</a>
+        <a href="{{ route('suppliers.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Regresar</a>
     </div>
 </div>
 

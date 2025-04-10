@@ -51,7 +51,7 @@
     <!-- Filters Applied -->
     @if(request('name') || request('condition'))
         <div class="mb-4 p-3 bg-gray-100 rounded text-sm text-gray-700">
-            <strong>Filters applied:</strong>
+            <strong>Filtros aplicados:</strong>
             <ul class="list-disc pl-4">
                 @if(request('name'))
                     <li>Name: "{{ request('name') }}"</li>
@@ -87,7 +87,7 @@
                     </td>
                     <td class="border px-4 py-2">
                         <!-- Edit button -->
-                        <a href="{{ route('categories.edit', $category->id) }}" class="text-blue-500 hover:underline">Edit</a>
+                        <a href="{{ route('categories.edit', $category->id) }}" class="text-blue-500 hover:underline">Editar</a>
                     </td>
                     <td class="border px-4 py-2">
                         <!-- Delete button -->

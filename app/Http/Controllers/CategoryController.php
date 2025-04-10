@@ -49,7 +49,7 @@ class CategoryController extends Controller
         ]);
 
         Category::create($validated);
-        return redirect()->back()->with('success', 'Category created successfully.');
+        return redirect()->back()->with('success', 'Categoria creada satisfactoriamente');
     }
 
     /**
@@ -85,7 +85,7 @@ class CategoryController extends Controller
 
         $category->update($validated);
 
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+        return redirect()->route('categories.index')->with('success', 'Categoria actualizada satisfactoriamente');
     }
 
     /**
@@ -95,7 +95,7 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+        return redirect()->route('categories.index')->with('success', 'Categoria eliminada satisfactoriamente');
     }
 
     public function generateReport(Request $request)

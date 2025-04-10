@@ -135,7 +135,7 @@
             <div class="flex justify-end space-x-3">
                 <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Save</button>
                 <a href="{{ route('customers.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Cancelar</a>
-                <a href="{{ route('customers.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Ver listas</a>
+                <a href="{{ route('customers.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Listas</a>
             </div>
 
         </form>

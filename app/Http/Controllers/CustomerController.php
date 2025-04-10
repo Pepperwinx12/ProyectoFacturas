@@ -60,7 +60,7 @@ class CustomerController extends Controller
         ]);
 
         Customer::create($validated);
-        return redirect()->route('customers.create')->with('success', ' Customer created successfully');
+        return redirect()->route('customers.create')->with('success', ' Cliente creado satisfactoriamente');
     }
 
     /**
@@ -98,7 +98,7 @@ class CustomerController extends Controller
 
         $customer->update($validated);
 
-        return redirect()->route('customers.index')->with('success', 'Customer updated successfully');
+        return redirect()->route('customers.index')->with('success', 'Cliente actualizado satisfactoriamente');
     }
 
     /**
@@ -108,6 +108,6 @@ class CustomerController extends Controller
     {
         $customer->delete();
 
-        return redirect()->route('customers.index')->with('success', 'Customer deleted successfully');
+        return redirect()->route('customers.index')->with('success', 'Cliente eliminado satisfactoriamente');
     }
 }
