@@ -5,6 +5,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CategoryReportController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,7 +28,34 @@ Route::get('/reports/categories', [CategoryReportController::class, 'index'])->n
 
 Route::resource('items', ItemController::class);
 
+
+
+Route::prefix('sales')->group(function() {
+    // Ruta para ver la lista de ventas
+    Route::get('/', [SaleController::class, 'index'])->name('sales.index');
+
+    // Ruta para ver el formulario de crear venta
+    Route::get('create', [SaleController::class, 'create'])->name('sales.create');
+
+    // Ruta para almacenar una nueva venta
+    Route::post('/', [SaleController::class, 'store'])->name('sales.store');
+
+    // Ruta para ver el formulario de editar venta
+    Route::get('{sale}/edit', [SaleController::class, 'edit'])->name('sales.edit');
+
+    // Ruta para actualizar una venta existente
+    Route::put('{sale}', [SaleController::class, 'update'])->name('sales.update');
+
+    // Ruta para eliminar una venta
+    Route::delete('{sale}', [SaleController::class, 'destroy'])->name('sales.destroy');
+});
+
+
+
 // routes/web.php
 Route::get('/test', function() {
     return view('test');
 });
+
+
+

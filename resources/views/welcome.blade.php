@@ -87,7 +87,7 @@
                 <span class="text-[10px]">Ventas</span>
             </button>
             <div class="absolute bottom-full mb-2 bg-gradient-to-r from-purple-600 to-indigo-500 text-white rounded-xl shadow-xl py-2 w-40 text-left z-50 origin-bottom group-hover:block hidden">
-                <a href="#" class="block px-4 py-2 hover:bg-purple-700 transition">Generar ventas</a>
+                <a href="{{ route('sales.create') }}" class="block px-4 py-2 hover:bg-purple-700 transition">Generar ventas</a>
                 <a href="#" class="block px-4 py-2 hover:bg-purple-700 transition">Generar reporte</a>
             </div>
         </div>

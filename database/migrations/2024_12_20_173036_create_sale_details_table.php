@@ -19,10 +19,11 @@ return new class extends Migration
             $table->decimal('price', 11, 2);
             $table->decimal('discount', 11, 2)->nullable();
             $table->timestamps();
-
-            $table->foreign('sale_id')->references('id')->on('sales');
-            $table->foreign('item_id')->references('id')->on('items');
+        
+            $table->foreign('sale_id')->references('id')->on('sales')->onDelete('cascade');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
+        
     }
 
     /**

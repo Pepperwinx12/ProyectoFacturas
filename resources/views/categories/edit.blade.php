@@ -69,7 +69,7 @@
         <!-- Buttons -->
         <div class="flex justify-end space-x-3">
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Actualizar</button>
-            <a href="{{ route('categories.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Cancel</a>
+            <a href="{{ route('categories.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Cancelar</a>
         </div>
     </form>
 

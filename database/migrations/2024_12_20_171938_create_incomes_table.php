@@ -21,9 +21,10 @@ return new class extends Migration
             $table->decimal('tax', 4, 2);
             $table->boolean('status')->default(1);
             $table->timestamps();
-
-            $table->foreign('supplier_id')->references('id')->on('suppliers');
+        
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
         });
+        
     }
 
     /**

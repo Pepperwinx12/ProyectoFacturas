@@ -22,9 +22,10 @@ return new class extends Migration
             $table->decimal('total_sale', 11, 2);
             $table->boolean('status')->default(1);
             $table->timestamps();
-
-            $table->foreign('customer_id')->references('id')->on('customers');
+        
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
+        
     }
 
     /**

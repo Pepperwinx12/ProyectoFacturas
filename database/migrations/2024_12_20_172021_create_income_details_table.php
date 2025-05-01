@@ -18,10 +18,11 @@ return new class extends Migration
             $table->integer('quantity');
             $table->decimal('price', 11, 2);
             $table->timestamps();
-
-            $table->foreign('income_id')->references('id')->on('incomes');
-            $table->foreign('item_id')->references('id')->on('items');
+        
+            $table->foreign('income_id')->references('id')->on('incomes')->onDelete('cascade');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
+        
     }
 
     /**
