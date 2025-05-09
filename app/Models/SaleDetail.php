@@ -1,29 +1,29 @@
 <?php
 
+// app/Models/SaleDetail.php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class SaleDetail extends Model
 {
-    protected $table = 'sale_details';
-
-    protected $fillable = [
-        'sale_id',
-        'item_id',
-        'quantity',
-        'price',
-        'discount'
-    ];
+    protected $fillable = ['sale_id', 'product_id', 'quantity', 'price'];
 
     public function sale()
     {
         return $this->belongsTo(Sale::class);
     }
 
-    public function item()
+    public function product()
     {
-        return $this->belongsTo(Item::class);
+        return $this->belongsTo(Item::class, 'product_id');
     }
-}
 
+   
+     public function item()
+     {
+     return $this->belongsTo(Item::class);
+      }
+      
+
+}

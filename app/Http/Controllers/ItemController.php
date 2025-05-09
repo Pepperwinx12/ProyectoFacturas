@@ -50,22 +50,26 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'category_id' => 'required|exists:categories,id', // Asegúrate de que la categoría exista
-            'code' => 'required|max:500',
-            'name' => 'required|max:255',
-            'stock' => 'required|integer',
-            'description' => 'required|max:255',
-            'image' => 'required|max:255',
-            'status' => 'required|boolean',
-        ]);
-    
-        Item::create($validated);
-    
-        return redirect()->back()->with('success', 'Producto creado satisfactoriamente!');
-    }
+public function store(Request $request)
+{
+    $validated = $request->validate([
+        'category_id' => 'required|exists:categories,id',
+        'name' => 'required|max:255',
+        'stock' => 'required|integer',
+        'description' => 'required|max:255',
+        'image' => 'required|max:255',
+        'status' => 'required|boolean',
+        'price' => 'nullable|numeric', // Asegúrate de que esta validación permita valores null
+    ]);
+
+
+    $validated['code'] = 'ITEM-' . strtoupper(uniqid());
+
+    Item::create($validated);
+
+    return redirect()->back()->with('success', 'Producto creado satisfactoriamente!');
+}
+
     
 
     /**

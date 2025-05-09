@@ -40,14 +40,18 @@ Route::prefix('sales')->group(function() {
     // Ruta para almacenar una nueva venta
     Route::post('/', [SaleController::class, 'store'])->name('sales.store');
 
-    // Ruta para ver el formulario de editar venta
-    Route::get('{sale}/edit', [SaleController::class, 'edit'])->name('sales.edit');
-
     // Ruta para actualizar una venta existente
     Route::put('{sale}', [SaleController::class, 'update'])->name('sales.update');
 
     // Ruta para eliminar una venta
     Route::delete('{sale}', [SaleController::class, 'destroy'])->name('sales.destroy');
+
+
+    // routes/web.php
+
+
+Route::get('sales/{sale}/invoice', [SaleController::class, 'generateInvoice'])->name('sales.invoice');
+ 
 });
 
 

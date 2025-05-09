@@ -1,53 +1,64 @@
 @extends('welcome')
 
 @section('content')
+    <div class="max-w-7xl mx-auto bg-white p-6 rounded shadow">
+        <h1 class="text-2xl font-bold mb-4">Ventas por Cliente</h1>
 
-<div class="max-w-6xl mx-auto bg-white p-6 rounded shadow">
-    <h1 class="text-2xl font-bold mb-4">Ventas Registradas</h1>
+        <a href="{{ route('sales.create') }}" class="bg-green-500 text-white px-6 py-3 rounded">Crear nueva venta</a>
 
-    @if (session('success'))
-        <div class="bg-green-100 text-green-700 p-3 rounded mb-4">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    <table class="min-w-full table-auto">
-        <thead>
-            <tr>
-                <th class="px-4 py-2 border-b text-left">Cliente</th>
-                <th class="px-4 py-2 border-b text-left">Tipo de Recibo</th>
-                <th class="px-4 py-2 border-b text-left">Serie y Número</th>
-                <th class="px-4 py-2 border-b text-left">Fecha y Hora</th>
-                <th class="px-4 py-2 border-b text-left">Impuesto</th>
-                <th class="px-4 py-2 border-b text-left">Total</th>
-                <th class="px-4 py-2 border-b text-left">Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
+        <div class="mt-6 space-y-10">
             @foreach ($sales as $sale)
-                <tr>
-                    <td class="px-4 py-2 border-b">{{ $sale->customer->name }}</td>
-                    <td class="px-4 py-2 border-b">{{ $sale->receipt_type }}</td>
-                    <td class="px-4 py-2 border-b">{{ $sale->receipt_series }} - {{ $sale->receipt_number }}</td>
-                    <td class="px-4 py-2 border-b">{{ $sale->date_time }}</td>
-                    <td class="px-4 py-2 border-b">${{ number_format($sale->tax, 2) }}</td>
-                    <td class="px-4 py-2 border-b">${{ number_format($sale->total_sale, 2) }}</td>
-                    <td class="px-4 py-2 border-b">
-                        <a href="{{ route('sales.edit', $sale->id) }}" class="text-blue-500 hover:text-blue-700">Editar</a> |
-                        <form action="{{ route('sales.destroy', $sale->id) }}" method="POST" class="inline-block">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-red-500 hover:text-red-700">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
+                <div class="bg-gray-50 p-4 rounded shadow">
+                    <h2 class="text-xl font-semibold mb-2">Cliente: {{ $sale->customer->name }}</h2>
+
+                    <table class="min-w-full table-auto border-collapse border">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="px-4 py-2 border">ID Venta</th>
+                                <th class="px-4 py-2 border">Tipo</th>
+                                <th class="px-4 py-2 border">Serie</th>
+                                <th class="px-4 py-2 border">Número</th>
+                                <th class="px-4 py-2 border">Fecha</th>
+                                <th class="px-4 py-2 border">Impuesto</th>
+                                <th class="px-4 py-2 border">Total</th>
+                                <th class="px-4 py-2 border" colspan="3">Acciones</th>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border">{{ $sale->id }}</td>
+                                <td class="px-4 py-2 border">{{ $sale->receipt_type }}</td>
+                                <td class="px-4 py-2 border">{{ $sale->receipt_series }}</td>
+                                <td class="px-4 py-2 border">{{ $sale->receipt_number }}</td>
+                                <td class="px-4 py-2 border">{{ $sale->date_time }}</td>
+                                <td class="px-4 py-2 border">${{ number_format($sale->tax, 2) }}</td>
+                                <td class="px-4 py-2 border">${{ number_format($sale->total, 2) }}</td>
+                                <td class="px-4 py-2 border text-center" colspan="3">
+                                    <a href="{{ route('sales.invoice', $sale->id) }}" class="text-red-500 hover:underline">
+                                        Generar Factura
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-200">
+                                <th class="px-4 py-2 border" colspan="4">Producto</th>
+                                <th class="px-4 py-2 border">Cantidad</th>
+                                <th class="px-4 py-2 border" colspan="2">Precio Unitario</th>
+                                <th class="px-4 py-2 border" colspan="3">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($sale->saleDetails as $detail)
+                                <tr>
+                                    <td class="px-4 py-2 border" colspan="4">{{ $detail->product->name }}</td>
+                                    <td class="px-4 py-2 border">{{ $detail->quantity }}</td>
+                                    <td class="px-4 py-2 border" colspan="2">${{ number_format($detail->price, 2) }}</td>
+                                    <td class="px-4 py-2 border" colspan="3">
+                                        ${{ number_format($detail->quantity * $detail->price, 2) }}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             @endforeach
-        </tbody>
-    </table>
-
-    <div class="mt-4">
-        <a href="{{ route('sales.create') }}" class="bg-green-500 text-white px-4 py-2 rounded">Registrar Nueva Venta</a>
+        </div>
     </div>
-</div>
-
 @endsection

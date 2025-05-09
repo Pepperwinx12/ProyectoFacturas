@@ -84,6 +84,8 @@
                 <th class="px-4 py-2">Documento</th>
                 <th class="px-4 py-2">Telefono</th>
                 <th class="px-4 py-2">Status</th>
+                <th class="px-4 py-2"></th>
+                <th class="px-4 py-2"></th>
             </tr>
         </thead>
         <tbody>
@@ -138,5 +140,27 @@
         <a href="{{ route('suppliers.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Regresar</a>
     </div>
 </div>
+
+@section('scripts')
+    <script>
+        
+        function confirmDelete(supplierId) {
+            Swal.fire({
+                title: '¿Estás seguro de eliminar?',
+                text: "¡Por favor confirma la eliminación!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(`delete-form-${supplierId}`).submit();
+                }
+            });
+        }
+    </script>
+@endsection
 
 @endsection

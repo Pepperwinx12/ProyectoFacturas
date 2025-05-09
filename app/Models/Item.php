@@ -10,7 +10,7 @@ class Item extends Model
     use HasFactory;
 
     protected $table = 'items';
-    protected $fillable = ['category_id', 'code', 'name', 'stock', 'description', 'image', 'status'];
+    protected $fillable = ['category_id', 'code', 'name', 'stock', 'price', 'description', 'image', 'status'];
 
     // Relations: one Item belongs to one Category
 

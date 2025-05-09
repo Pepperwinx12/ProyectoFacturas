@@ -92,7 +92,9 @@
                 <th class="px-4 py-2">Document</th>
                 <th class="px-4 py-2">Phone</th>
                 <th class="px-4 py-2">Status</th>
-                <th class="px-4 py-2">Actions</th>
+                <th class="px-4 py-2"></th>
+                <th class="px-4 py-2"></th>
+
             </tr>
         </thead>
         <tbody>

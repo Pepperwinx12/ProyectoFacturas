@@ -5,7 +5,6 @@
         <h1 class="text-2xl font-bold mb-4">Crear clientes</h1>
 
         <!-- Show messages (success) -->
-
         @if (session('success'))
             <div class="bg-green-100 text-green-700 p-3 rounded mb-4">
                 {{ session('success') }}
@@ -13,7 +12,6 @@
         @endif
 
         <!-- Show messages (error) -->
-
         @if ($errors->any())
             <div class="bg-red-100 text-red-700 p-3 rounded mb-4">
                 <ul class="list-disc pl-5">
@@ -27,10 +25,7 @@
         <form action="{{ route('customers.store') }}" method="POST" class="space-y-4">
             @csrf
 
-            <!-- fields of our form -->
-
             <!-- Name -->
-
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700">Nombre: </label>
                 <input
@@ -43,7 +38,6 @@
             </div>
 
             <!-- Type of Document -->
-
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label for="document_type" class="block text-sm font-medium text-gray-700">
@@ -69,7 +63,6 @@
             </div>
 
             <!-- Address -->
-
             <div>
                 <label for="address" class="block text-sm font-medium text-gray-700">Direccion: </label>
                 <input
@@ -106,7 +99,6 @@
             </div>
 
             <!-- Status -->
-
             <div>
                 <label class="block text-sm font-medium text-gray-700">Status: </label>
                 <div class="flex space-x-4">
@@ -131,11 +123,10 @@
             </div>
 
             <!-- Buttons -->
-
             <div class="flex justify-end space-x-3">
-                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Save</button>
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Guardar</button>
                 <a href="{{ route('customers.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Cancelar</a>
-                <a href="{{ route('customers.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Listas</a>
+                <a href="{{ route('customers.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Ver clientes</a>
             </div>
 
         </form>

@@ -125,7 +125,7 @@
 
     <!-- Button for return to main form -->
     <div class="mt-4">
-        <a href="{{ route('categories.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Return to Form</a>
+        <a href="{{ route('categories.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Regresar</a>
     </div>
 </div>
 

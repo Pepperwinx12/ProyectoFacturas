@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Agregar la clave foránea con ON DELETE CASCADE
         Schema::table('items', function (Blueprint $table) {
+            // Agregar la clave foránea
             $table->foreign('category_id')
                 ->references('id')->on('categories')
                 ->onDelete('cascade');
+
+            // Agregar columna 'price' (que puede ser null)
+            $table->decimal('price', 10, 2)->nullable();  // Puedes ajustar la precisión si es necesario
         });
     }
 
@@ -24,9 +27,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Eliminar la clave foránea
         Schema::table('items', function (Blueprint $table) {
+            // Eliminar la clave foránea
             $table->dropForeign(['category_id']);
+            
+            // Eliminar la columna 'price'
+            $table->dropColumn('price');
         });
     }
 };

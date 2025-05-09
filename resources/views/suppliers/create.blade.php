@@ -26,7 +26,6 @@
     <form action="{{ route('suppliers.store') }}" method="POST" class="space-y-4">
         @csrf
 
-
         <!-- Name -->
         <div>
             <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
@@ -41,7 +40,6 @@
                     <option value="INE">INE</option>
                     <option value="RFC">RFC</option>
                     <option value="Pasaporte">Pasaporte</option>
-                   
                 </select>
             </div>
             <div>
@@ -49,7 +47,6 @@
                 <input type="text" name="document_number" id="document_number" class="w-full px-4 py-2 border rounded" value="{{ old('document_number') }}">
             </div>
         </div>
-
 
         <!-- Address -->
         <div>
@@ -82,13 +79,11 @@
         <div class="flex justify-end space-x-3">
             <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Guardar</button>
             <a href="{{ route('suppliers.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Cancelar</a>
-            <a href="{{ route('suppliers.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Listass</a>
+            <a href="{{ route('suppliers.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Ver proveedores</a>
         </div>
 
     </form>
 
 </div>
-
-
 
 @endsection
